@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MetaFramework\Traits;
+namespace MetaFramework\Support\Traits;
 
 use Illuminate\Http\RedirectResponse;
 use Throwable;

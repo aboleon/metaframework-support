@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MetaFramework\Support;
+namespace MetaFramework\Support\Responses;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\MessageBag;
