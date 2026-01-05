@@ -16,12 +16,12 @@ trait Ajax
         $this->ajaxMode();
 
         if (!request()->filled('action')) {
-            $this->responseError('Cette requête ne peut pas être interprêtée.');
+            $this->responseError(__('mfw-support::mfw-support.ajax.request_cannot_be_interpreted'));
             return response()->json($this->response, 400);
         }
 
         if (!method_exists(self::class, request('action'))) {
-            $this->responseError('Cette requête ne peut pas être traitée.');
+            $this->responseError(__('mfw-support::mfw-support.ajax.request_cannot_be_processed'));
             return response()->json($this->response, 405);
         }
 

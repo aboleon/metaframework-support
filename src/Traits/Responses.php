@@ -310,7 +310,7 @@ trait Responses
 
     public function responseException(Throwable $e, string $message = ''): static
     {
-        $this->responseError(! empty($message) ? $message : __('mfw.errors.error'));
+        $this->responseError(! empty($message) ? $message : __('mfw-support::mfw-support.errors.error'));
 
         if (auth()->check() && auth()->user()->hasRole('dev')) {
             $this->responseWarning($e->getMessage());
