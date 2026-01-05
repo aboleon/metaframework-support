@@ -316,7 +316,7 @@ fetch('/ajax', {
 
 ### Frontend JavaScript Integration
 
-The package provides a powerful `ajax()` JavaScript helper function for seamless frontend-backend communication.
+The package provides a powerful `MfwAjax` JavaScript class and `mfwAjax()` helper function for seamless frontend-backend communication.
 
 #### Setup
 
@@ -339,11 +339,26 @@ Define the default AJAX route (optional):
 <meta name="ajax-route" content="{{ route('ajax.handle') }}">
 ```
 
-#### The ajax() Helper Function
+#### The MfwAjax Class
+
+The `MfwAjax` class handles all AJAX operations with automatic message display and callback execution.
+
+**Requirements:** jQuery (uses `$.ajax`, `$.ajaxSetup`, and jQuery selectors)
+
+**Static Properties:**
+- `MfwAjax.dev` (boolean): Enable/disable debug mode (default: `true`)
+- `MfwAjax.timerDefault` (number): Default animation timer in ms (default: `200`)
+
+**Static Methods:**
+- `MfwAjax.setVeil(container)`: Show loading overlay on a container
+- `MfwAjax.removeVeil()`: Remove loading overlay
+- `MfwAjax.spinout()`: Fade out and remove spinner elements
+
+#### The mfwAjax() Helper Function
 
 **Signature:**
 ```javascript
-ajax(formData, selector, options)
+mfwAjax(formData, selector, options)
 ```
 
 **Parameters:**
@@ -364,10 +379,10 @@ ajax(formData, selector, options)
 
 ```javascript
 // Simple AJAX call
-ajax('action=deleteItem&id=123', $('#container'));
+mfwAjax('action=deleteItem&id=123', $('#container'));
 
 // With callback
-ajax('action=updateProfile&name=John&callback=refreshProfile', $('#profile-section'));
+mfwAjax('action=updateProfile&name=John&callback=refreshProfile', $('#profile-section'));
 
 function refreshProfile(result) {
     console.log('Profile updated!', result);
@@ -378,7 +393,7 @@ function refreshProfile(result) {
 
 #### Using data-ajax Attribute
 
-The `ajax()` function automatically detects the AJAX endpoint from the `data-ajax` attribute:
+The `mfwAjax()` function automatically detects the AJAX endpoint from the `data-ajax` attribute:
 
 ```blade
 <div id="notes" data-ajax="{{ route('ajax.handle') }}">
@@ -388,7 +403,7 @@ The `ajax()` function automatically detects the AJAX endpoint from the `data-aja
 
 ```javascript
 // AJAX URL is automatically picked from data-ajax attribute
-ajax('action=deleteNote&id=456', $('#notes'));
+mfwAjax('action=deleteNote&id=456', $('#notes'));
 ```
 
 #### Complete Real-World Example
@@ -442,7 +457,7 @@ ajax('action=deleteNote&id=456', $('#notes'));
         // Delete note
         $(document).on('click', '.delete-note', function() {
             const noteId = $(this).data('note-id');
-            ajax(
+            mfwAjax(
                 'action=deleteNote&id=' + noteId + '&callback=deleteNoteCallback',
                 $('#note-messages')
             );
@@ -452,7 +467,7 @@ ajax('action=deleteNote&id=456', $('#notes'));
         $('#add-note').on('click', function() {
             const content = prompt('Enter note content:');
             if (content) {
-                ajax(
+                mfwAjax(
                     'action=addNote&content=' + encodeURIComponent(content) + '&callback=addNoteCallback',
                     $('#note-messages')
                 );
@@ -499,7 +514,7 @@ class AjaxController extends Controller
 #### Advanced Options Example
 
 ```javascript
-ajax('action=processData&id=123', $('#form'), {
+mfwAjax('action=processData&id=123', $('#form'), {
     successHandler: function(result) {
         console.log('Custom success handling', result);
         // Return false to suppress automatic message display
@@ -538,16 +553,16 @@ The AJAX response from your controller methods includes:
 }
 ```
 
-#### Helper Functions
+#### Helper Methods
 
-**setVeil(container)** - Show loading overlay:
+**MfwAjax.setVeil(container)** - Show loading overlay:
 ```javascript
-setVeil($('#my-container'));
+MfwAjax.setVeil($('#my-container'));
 ```
 
-**removeVeil()** - Remove loading overlay:
+**MfwAjax.removeVeil()** - Remove loading overlay:
 ```javascript
-removeVeil();
+MfwAjax.removeVeil();
 ```
 
 ### Response Management
