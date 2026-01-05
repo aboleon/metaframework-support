@@ -1,7 +1,6 @@
 {
   "name": "aboleon/metaframework-support",
   "description": "Laravel support package providing enhanced debugging helpers, AJAX request handling, and comprehensive response/message management utilities",
-  "version": "0.1.0",
   "type": "library",
   "license": "MIT",
   "require": {
