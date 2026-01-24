@@ -9,12 +9,12 @@ class MfwAjax {
 
     constructor(formData, selector, options = {}) {
         this.formData = formData;
-        this.selector = selector;
+        this.selector = selector && selector.jquery ? selector : $(selector ?? []);
         this.options = options;
 
         this.ajaxUrl = document.querySelector('meta[name="ajax-route"]')?.content ?? null;
         this.ajaxUrlOrigin = 'meta tag';
-        this.formTag = selector.closest('.form');
+        this.formTag = this.selector.length ? this.selector.closest('.form') : $();
         this.messages = null;
         this.spinner = null;
 
@@ -29,6 +29,10 @@ class MfwAjax {
     }
 
     resolveAjaxUrl() {
+        if (!this.selector || this.selector.length < 1) {
+            return;
+        }
+
         if (this.selector[0].hasAttribute('data-ajax')) {
             this.ajaxUrl = this.selector.attr('data-ajax');
             this.ajaxUrlOrigin = 'selector data-ajax';

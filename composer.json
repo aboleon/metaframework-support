@@ -23,6 +23,9 @@
       "providers": [
         "MetaFramework\\Support\\SupportServiceProvider"
       ]
+    },
+    "branch-alias": {
+      "dev-main": "0.1.x-dev"
     }
   },
   "minimum-stability": "dev",
