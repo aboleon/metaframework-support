@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1769617216">
+  <project timestamp="1769617216" name="Clover Coverage">
+    <package name="MetaFramework\Support\Console">
+      <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\Console\PublishAssetsCommand.php">
+        <class name="MetaFramework\Support\Console\PublishAssetsCommand" namespace="MetaFramework\Support\Console">
+          <metrics complexity="7" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="21" elements="28" coveredelements="21"/>
+        </class>
+        <line num="29" type="method" name="handle" visibility="public" complexity="7" crap="7.54" count="2"/>
+        <line num="31" type="stmt" count="2"/>
+        <line num="33" type="stmt" count="2"/>
+        <line num="34" type="stmt" count="2"/>
+        <line num="37" type="stmt" count="2"/>
+        <line num="38" type="stmt" count="2"/>
+        <line num="39" type="stmt" count="1"/>
+        <line num="40" type="stmt" count="1"/>
+        <line num="44" type="stmt" count="2"/>
+        <line num="45" type="stmt" count="1"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="54" type="stmt" count="1"/>
+        <line num="55" type="stmt" count="1"/>
+        <line num="56" type="stmt" count="1"/>
+        <line num="57" type="stmt" count="1"/>
+        <line num="58" type="stmt" count="1"/>
+        <line num="59" type="stmt" count="1"/>
+        <line num="60" type="stmt" count="1"/>
+        <line num="63" type="stmt" count="1"/>
+        <line num="64" type="stmt" count="0"/>
+        <line num="65" type="stmt" count="0"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="67" type="stmt" count="0"/>
+        <line num="70" type="stmt" count="1"/>
+        <line num="73" type="stmt" count="0"/>
+        <line num="74" type="stmt" count="0"/>
+        <metrics loc="77" ncloc="60" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="21" elements="28" coveredelements="21"/>
+      </file>
+      <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\Console\PublishTranslationsCommand.php">
+        <class name="MetaFramework\Support\Console\PublishTranslationsCommand" namespace="MetaFramework\Support\Console">
+          <metrics complexity="14" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="35" elements="42" coveredelements="35"/>
+        </class>
+        <line num="36" type="method" name="handle" visibility="public" complexity="9" crap="9.19" count="3"/>
+        <line num="38" type="stmt" count="3"/>
+        <line num="40" type="stmt" count="3"/>
+        <line num="42" type="stmt" count="3"/>
+        <line num="43" type="stmt" count="3"/>
+        <line num="44" type="stmt" count="3"/>
+        <line num="46" type="stmt" count="3"/>
+        <line num="47" type="stmt" count="3"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="3"/>
+        <line num="54" type="stmt" count="3"/>
+        <line num="55" type="stmt" count="2"/>
+        <line num="56" type="stmt" count="1"/>
+        <line num="57" type="stmt" count="1"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="3"/>
+        <line num="65" type="stmt" count="3"/>
+        <line num="66" type="stmt" count="2"/>
+        <line num="69" type="stmt" count="3"/>
+        <line num="70" type="stmt" count="1"/>
+        <line num="73" type="stmt" count="3"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="77" type="stmt" count="3"/>
+        <line num="78" type="stmt" count="3"/>
+        <line num="79" type="stmt" count="3"/>
+        <line num="80" type="stmt" count="3"/>
+        <line num="81" type="stmt" count="3"/>
+        <line num="82" type="stmt" count="3"/>
+        <line num="83" type="stmt" count="3"/>
+        <line num="85" type="stmt" count="3"/>
+        <line num="94" type="method" name="publishLanguage" visibility="protected" complexity="5" crap="5.03" count="3"/>
+        <line num="96" type="stmt" count="3"/>
+        <line num="97" type="stmt" count="3"/>
+        <line num="100" type="stmt" count="3"/>
+        <line num="101" type="stmt" count="3"/>
+        <line num="102" type="stmt" count="2"/>
+        <line num="106" type="stmt" count="3"/>
+        <line num="107" type="stmt" count="1"/>
+        <line num="111" type="stmt" count="2"/>
+        <line num="112" type="stmt" count="2"/>
+        <line num="115" type="stmt" count="0"/>
+        <metrics loc="118" ncloc="88" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="35" elements="42" coveredelements="35"/>
+      </file>
+    </package>
+    <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\Functions\debugger.php">
+      <line num="7" type="stmt" count="2"/>
+      <line num="12" type="stmt" count="2"/>
+      <line num="13" type="stmt" count="2"/>
+      <line num="14" type="stmt" count="2"/>
+      <line num="16" type="stmt" count="2"/>
+      <line num="17" type="stmt" count="0"/>
+      <line num="18" type="stmt" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="2"/>
+      <line num="25" type="stmt" count="1"/>
+      <line num="27" type="stmt" count="1"/>
+      <line num="29" type="stmt" count="2"/>
+      <line num="34" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <line num="41" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="45" type="stmt" count="0"/>
+      <line num="46" type="stmt" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="51" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <line num="58" type="stmt" count="0"/>
+      <line num="63" type="stmt" count="0"/>
+      <line num="64" type="stmt" count="0"/>
+      <line num="65" type="stmt" count="0"/>
+      <line num="66" type="stmt" count="0"/>
+      <metrics loc="67" ncloc="65" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="9" elements="29" coveredelements="9"/>
+    </file>
+    <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\Resources\views\components\alert.blade.php">
+      <line num="1" type="stmt" count="0"/>
+      <line num="2" type="stmt" count="0"/>
+      <line num="3" type="stmt" count="0"/>
+      <metrics loc="4" ncloc="4" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="3" coveredelements="0"/>
+    </file>
+    <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\Resources\views\components\response-messages.blade.php">
+      <line num="1" type="stmt" count="0"/>
+      <line num="2" type="stmt" count="0"/>
+      <line num="3" type="stmt" count="0"/>
+      <line num="4" type="stmt" count="0"/>
+      <line num="5" type="stmt" count="0"/>
+      <line num="6" type="stmt" count="0"/>
+      <metrics loc="7" ncloc="7" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="6" coveredelements="0"/>
+    </file>
+    <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\Resources\views\components\validation-banner.blade.php">
+      <line num="1" type="stmt" count="0"/>
+      <line num="2" type="stmt" count="0"/>
+      <line num="3" type="stmt" count="0"/>
+      <metrics loc="4" ncloc="4" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="3" coveredelements="0"/>
+    </file>
+    <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\Resources\views\components\validation-errors.blade.php">
+      <line num="1" type="stmt" count="0"/>
+      <line num="2" type="stmt" count="0"/>
+      <line num="3" type="stmt" count="0"/>
+      <line num="4" type="stmt" count="0"/>
+      <line num="5" type="stmt" count="0"/>
+      <metrics loc="6" ncloc="6" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="5" coveredelements="0"/>
+    </file>
+    <package name="MetaFramework\Support\Responses">
+      <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\Responses\ResponseMessages.php">
+        <class name="MetaFramework\Support\Responses\ResponseMessages" namespace="MetaFramework\Support\Responses">
+          <metrics complexity="23" methods="7" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="36" elements="47" coveredelements="40"/>
+        </class>
+        <line num="13" type="method" name="parseResponse" visibility="public" complexity="12" crap="12" count="3"/>
+        <line num="15" type="stmt" count="3"/>
+        <line num="16" type="stmt" count="1"/>
+        <line num="19" type="stmt" count="2"/>
+        <line num="20" type="stmt" count="1"/>
+        <line num="23" type="stmt" count="1"/>
+        <line num="25" type="stmt" count="1"/>
+        <line num="26" type="stmt" count="1"/>
+        <line num="27" type="stmt" count="1"/>
+        <line num="28" type="stmt" count="1"/>
+        <line num="31" type="stmt" count="1"/>
+        <line num="34" type="stmt" count="1"/>
+        <line num="36" type="stmt" count="1"/>
+        <line num="37" type="stmt" count="1"/>
+        <line num="38" type="stmt" count="1"/>
+        <line num="39" type="stmt" count="1"/>
+        <line num="41" type="stmt" count="1"/>
+        <line num="42" type="stmt" count="1"/>
+        <line num="45" type="stmt" count="1"/>
+        <line num="48" type="method" name="validationErrors" visibility="public" complexity="6" crap="6.06" count="2"/>
+        <line num="50" type="stmt" count="2"/>
+        <line num="51" type="stmt" count="2"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="2"/>
+        <line num="56" type="stmt" count="2"/>
+        <line num="57" type="stmt" count="2"/>
+        <line num="60" type="stmt" count="1"/>
+        <line num="61" type="stmt" count="1"/>
+        <line num="62" type="stmt" count="1"/>
+        <line num="65" type="stmt" count="1"/>
+        <line num="66" type="stmt" count="1"/>
+        <line num="67" type="stmt" count="1"/>
+        <line num="70" type="stmt" count="1"/>
+        <line num="71" type="stmt" count="0"/>
+        <line num="74" type="stmt" count="1"/>
+        <line num="75" type="stmt" count="1"/>
+        <line num="76" type="stmt" count="1"/>
+        <line num="79" type="method" name="alertBox" visibility="public" complexity="1" crap="1" count="5"/>
+        <line num="81" type="stmt" count="5"/>
+        <line num="84" type="method" name="criticalNotice" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="86" type="stmt" count="3"/>
+        <line num="89" type="method" name="successNotice" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="91" type="stmt" count="0"/>
+        <line num="94" type="method" name="warningNotice" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="96" type="stmt" count="0"/>
+        <line num="99" type="method" name="infoNotice" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="101" type="stmt" count="1"/>
+        <metrics loc="104" ncloc="104" classes="1" methods="7" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="36" elements="47" coveredelements="40"/>
+      </file>
+    </package>
+    <package name="MetaFramework\Support\Services">
+      <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\Services\ResponseParser.php">
+        <class name="MetaFramework\Support\Services\ResponseParser" namespace="MetaFramework\Support\Services">
+          <metrics complexity="21" methods="7" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="29" elements="38" coveredelements="34"/>
+        </class>
+        <line num="13" type="method" name="parseResponse" visibility="public" complexity="13" crap="13" count="5"/>
+        <line num="15" type="stmt" count="5"/>
+        <line num="17" type="stmt" count="5"/>
+        <line num="19" type="stmt" count="5"/>
+        <line num="20" type="stmt" count="1"/>
+        <line num="23" type="stmt" count="4"/>
+        <line num="24" type="stmt" count="1"/>
+        <line num="27" type="stmt" count="4"/>
+        <line num="28" type="stmt" count="1"/>
+        <line num="31" type="stmt" count="3"/>
+        <line num="32" type="stmt" count="3"/>
+        <line num="33" type="stmt" count="3"/>
+        <line num="34" type="stmt" count="3"/>
+        <line num="35" type="stmt" count="3"/>
+        <line num="36" type="stmt" count="3"/>
+        <line num="37" type="stmt" count="2"/>
+        <line num="38" type="stmt" count="2"/>
+        <line num="39" type="stmt" count="1"/>
+        <line num="42" type="stmt" count="3"/>
+        <line num="43" type="stmt" count="1"/>
+        <line num="45" type="stmt" count="3"/>
+        <line num="48" type="stmt" count="3"/>
+        <line num="51" type="stmt" count="3"/>
+        <line num="53" type="stmt" count="3"/>
+        <line num="56" type="method" name="validationErrors" visibility="public" complexity="3" crap="3" count="1"/>
+        <line num="58" type="stmt" count="1"/>
+        <line num="59" type="stmt" count="1"/>
+        <line num="60" type="stmt" count="1"/>
+        <line num="65" type="method" name="alertBox" visibility="public" complexity="1" crap="1" count="5"/>
+        <line num="67" type="stmt" count="5"/>
+        <line num="70" type="method" name="criticalNotice" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="73" type="stmt" count="1"/>
+        <line num="76" type="method" name="successNotice" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="82" type="method" name="warningNotice" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="85" type="stmt" count="0"/>
+        <line num="88" type="method" name="infoNotice" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="91" type="stmt" count="1"/>
+        <metrics loc="94" ncloc="93" classes="1" methods="7" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="29" elements="38" coveredelements="34"/>
+      </file>
+    </package>
+    <package name="MetaFramework\Support">
+      <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\SupportServiceProvider.php">
+        <class name="MetaFramework\Support\SupportServiceProvider" namespace="MetaFramework\Support">
+          <metrics complexity="3" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="21" coveredelements="21"/>
+        </class>
+        <line num="10" type="method" name="register" visibility="public" complexity="1" crap="1" count="38"/>
+        <line num="13" type="stmt" count="38"/>
+        <line num="15" type="method" name="boot" visibility="public" complexity="2" crap="2" count="38"/>
+        <line num="17" type="stmt" count="38"/>
+        <line num="18" type="stmt" count="38"/>
+        <line num="21" type="stmt" count="38"/>
+        <line num="23" type="stmt" count="38"/>
+        <line num="25" type="stmt" count="38"/>
+        <line num="26" type="stmt" count="38"/>
+        <line num="27" type="stmt" count="38"/>
+        <line num="30" type="stmt" count="38"/>
+        <line num="31" type="stmt" count="38"/>
+        <line num="32" type="stmt" count="38"/>
+        <line num="35" type="stmt" count="38"/>
+        <line num="36" type="stmt" count="38"/>
+        <line num="37" type="stmt" count="38"/>
+        <line num="38" type="stmt" count="38"/>
+        <line num="41" type="stmt" count="38"/>
+        <line num="42" type="stmt" count="38"/>
+        <line num="43" type="stmt" count="38"/>
+        <line num="44" type="stmt" count="38"/>
+        <metrics loc="49" ncloc="43" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="21" coveredelements="21"/>
+      </file>
+    </package>
+    <package name="MetaFramework\Support\Traits">
+      <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\Traits\Ajax.php">
+        <class name="MetaFramework\Support\Traits\Ajax" namespace="MetaFramework\Support\Traits">
+          <metrics complexity="7" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="17" elements="21" coveredelements="21"/>
+        </class>
+        <line num="14" type="method" name="distribute" visibility="public" complexity="3" crap="3" count="3"/>
+        <line num="16" type="stmt" count="3"/>
+        <line num="18" type="stmt" count="3"/>
+        <line num="19" type="stmt" count="1"/>
+        <line num="20" type="stmt" count="1"/>
+        <line num="23" type="stmt" count="2"/>
+        <line num="24" type="stmt" count="1"/>
+        <line num="25" type="stmt" count="1"/>
+        <line num="29" type="stmt" count="1"/>
+        <line num="32" type="method" name="fetchInput" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="34" type="stmt" count="3"/>
+        <line num="35" type="stmt" count="3"/>
+        <line num="38" type="method" name="fetchCallback" visibility="public" complexity="2" crap="2" count="3"/>
+        <line num="40" type="stmt" count="3"/>
+        <line num="41" type="stmt" count="1"/>
+        <line num="43" type="stmt" count="3"/>
+        <line num="46" type="method" name="ajaxMode" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="48" type="stmt" count="3"/>
+        <line num="49" type="stmt" count="3"/>
+        <line num="50" type="stmt" count="3"/>
+        <line num="52" type="stmt" count="3"/>
+        <metrics loc="55" ncloc="55" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="17" elements="21" coveredelements="21"/>
+      </file>
+      <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\Traits\Responses.php">
+        <class name="MetaFramework\Support\Traits\Responses" namespace="MetaFramework\Support\Traits">
+          <metrics complexity="71" methods="46" coveredmethods="20" conditionals="0" coveredconditionals="0" statements="121" coveredstatements="72" elements="167" coveredelements="92"/>
+        </class>
+        <line num="25" type="method" name="reset" visibility="public" complexity="1" crap="1" count="11"/>
+        <line num="27" type="stmt" count="11"/>
+        <line num="28" type="stmt" count="11"/>
+        <line num="29" type="stmt" count="11"/>
+        <line num="30" type="stmt" count="11"/>
+        <line num="31" type="stmt" count="11"/>
+        <line num="32" type="stmt" count="11"/>
+        <line num="33" type="stmt" count="11"/>
+        <line num="34" type="stmt" count="11"/>
+        <line num="35" type="stmt" count="11"/>
+        <line num="36" type="stmt" count="11"/>
+        <line num="39" type="method" name="getDefaultMessageKey" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="41" type="stmt" count="1"/>
+        <line num="44" type="method" name="throwException" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="51" type="method" name="shouldBeException" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="56" type="method" name="disableExceptionMode" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="63" type="method" name="enableAjaxMode" visibility="public" complexity="1" crap="1" count="4"/>
+        <line num="65" type="stmt" count="4"/>
+        <line num="66" type="stmt" count="4"/>
+        <line num="68" type="stmt" count="4"/>
+        <line num="71" type="method" name="disableAjaxMode" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="73" type="stmt" count="1"/>
+        <line num="74" type="stmt" count="1"/>
+        <line num="76" type="stmt" count="1"/>
+        <line num="79" type="method" name="disableMessages" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <line num="86" type="method" name="enableMessages" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="88" type="stmt" count="0"/>
+        <line num="90" type="stmt" count="0"/>
+        <line num="93" type="method" name="enabledMessages" visibility="public" complexity="1" crap="1" count="10"/>
+        <line num="95" type="stmt" count="10"/>
+        <line num="98" type="method" name="fetchResponse" visibility="public" complexity="3" crap="3" count="4"/>
+        <line num="100" type="stmt" count="4"/>
+        <line num="101" type="stmt" count="1"/>
+        <line num="104" type="stmt" count="4"/>
+        <line num="107" type="method" name="consoleLog" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="109" type="stmt" count="1"/>
+        <line num="110" type="stmt" count="1"/>
+        <line num="111" type="stmt" count="1"/>
+        <line num="117" type="method" name="keepErrors" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="119" type="stmt" count="1"/>
+        <line num="120" type="stmt" count="1"/>
+        <line num="122" type="stmt" count="1"/>
+        <line num="125" type="method" name="fetchMessages" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="127" type="stmt" count="3"/>
+        <line num="130" type="method" name="disableRedirects" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="132" type="stmt" count="0"/>
+        <line num="134" type="stmt" count="0"/>
+        <line num="137" type="method" name="fetchErrorMessages" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="139" type="stmt" count="1"/>
+        <line num="140" type="stmt" count="1"/>
+        <line num="143" type="stmt" count="1"/>
+        <line num="146" type="method" name="fetchResponseElement" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="148" type="stmt" count="0"/>
+        <line num="151" type="method" name="hasErrors" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="153" type="stmt" count="2"/>
+        <line num="156" type="method" name="mustAbort" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="158" type="stmt" count="0"/>
+        <line num="161" type="method" name="canContinue" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="163" type="stmt" count="0"/>
+        <line num="166" type="method" name="responseNotice" visibility="public" complexity="2" crap="6" count="0"/>
+        <line num="168" type="stmt" count="0"/>
+        <line num="169" type="stmt" count="0"/>
+        <line num="172" type="stmt" count="0"/>
+        <line num="175" type="method" name="responseSuccess" visibility="public" complexity="3" crap="3.04" count="6"/>
+        <line num="177" type="stmt" count="6"/>
+        <line num="178" type="stmt" count="6"/>
+        <line num="179" type="stmt" count="1"/>
+        <line num="181" type="stmt" count="6"/>
+        <line num="184" type="stmt" count="6"/>
+        <line num="187" type="stmt" count="0"/>
+        <line num="190" type="method" name="whitout" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="192" type="stmt" count="0"/>
+        <line num="194" type="stmt" count="0"/>
+        <line num="197" type="method" name="responseError" visibility="protected" complexity="2" crap="2" count="4"/>
+        <line num="199" type="stmt" count="4"/>
+        <line num="200" type="stmt" count="4"/>
+        <line num="201" type="stmt" count="4"/>
+        <line num="205" type="method" name="responseLog" visibility="protected" complexity="1" crap="2" count="0"/>
+        <line num="207" type="stmt" count="0"/>
+        <line num="210" type="method" name="responseAbort" visibility="protected" complexity="2" crap="6" count="0"/>
+        <line num="212" type="stmt" count="0"/>
+        <line num="213" type="stmt" count="0"/>
+        <line num="214" type="stmt" count="0"/>
+        <line num="218" type="method" name="responseWarning" visibility="protected" complexity="3" crap="3" count="2"/>
+        <line num="220" type="stmt" count="2"/>
+        <line num="221" type="stmt" count="2"/>
+        <line num="222" type="stmt" count="2"/>
+        <line num="224" type="stmt" count="2"/>
+        <line num="228" type="method" name="responseDebug" visibility="protected" complexity="1" crap="1" count="1"/>
+        <line num="230" type="stmt" count="1"/>
+        <line num="232" type="stmt" count="1"/>
+        <line num="233" type="stmt" count="1"/>
+        <line num="237" type="method" name="responseElement" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="239" type="stmt" count="0"/>
+        <line num="241" type="stmt" count="0"/>
+        <line num="244" type="method" name="flash" visibility="protected" complexity="1" crap="1" count="1"/>
+        <line num="246" type="stmt" count="1"/>
+        <line num="249" type="method" name="flashResponse" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="251" type="stmt" count="0"/>
+        <line num="254" type="method" name="redirectTo" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="256" type="stmt" count="0"/>
+        <line num="258" type="stmt" count="0"/>
+        <line num="261" type="method" name="redirectRoute" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="263" type="stmt" count="1"/>
+        <line num="265" type="stmt" count="1"/>
+        <line num="268" type="method" name="sendResponse" visibility="public" complexity="6" crap="8.30" count="1"/>
+        <line num="270" type="stmt" count="1"/>
+        <line num="271" type="stmt" count="1"/>
+        <line num="272" type="stmt" count="1"/>
+        <line num="274" type="stmt" count="0"/>
+        <line num="278" type="stmt" count="1"/>
+        <line num="280" type="stmt" count="1"/>
+        <line num="281" type="stmt" count="1"/>
+        <line num="284" type="stmt" count="0"/>
+        <line num="285" type="stmt" count="0"/>
+        <line num="288" type="stmt" count="0"/>
+        <line num="291" type="method" name="pushMessages" visibility="public" complexity="4" crap="4" count="1"/>
+        <line num="293" type="stmt" count="1"/>
+        <line num="295" type="stmt" count="1"/>
+        <line num="297" type="stmt" count="1"/>
+        <line num="299" type="stmt" count="1"/>
+        <line num="300" type="stmt" count="1"/>
+        <line num="301" type="stmt" count="1"/>
+        <line num="303" type="stmt" count="1"/>
+        <line num="304" type="stmt" count="1"/>
+        <line num="308" type="stmt" count="1"/>
+        <line num="311" type="method" name="responseException" visibility="public" complexity="4" crap="4.13" count="1"/>
+        <line num="313" type="stmt" count="1"/>
+        <line num="315" type="stmt" count="1"/>
+        <line num="316" type="stmt" count="0"/>
+        <line num="318" type="stmt" count="1"/>
+        <line num="320" type="stmt" count="1"/>
+        <line num="330" type="method" name="saveAndRedirect" visibility="public" complexity="3" crap="12" count="0"/>
+        <line num="332" type="stmt" count="0"/>
+        <line num="333" type="stmt" count="0"/>
+        <line num="335" type="stmt" count="0"/>
+        <line num="336" type="stmt" count="0"/>
+        <line num="341" type="method" name="getMessageKey" visibility="public" complexity="1" crap="1" count="11"/>
+        <line num="343" type="stmt" count="11"/>
+        <line num="346" type="method" name="tabRedirect" visibility="public" complexity="2" crap="6" count="0"/>
+        <line num="348" type="stmt" count="0"/>
+        <line num="349" type="stmt" count="0"/>
+        <line num="353" type="method" name="removeFromResponse" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="355" type="stmt" count="1"/>
+        <line num="358" type="method" name="isInDebugMode" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="360" type="stmt" count="0"/>
+        <line num="363" type="method" name="isRestrictedToDev" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="365" type="stmt" count="0"/>
+        <line num="368" type="method" name="restrictToDev" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="370" type="stmt" count="0"/>
+        <line num="371" type="stmt" count="0"/>
+        <line num="373" type="stmt" count="0"/>
+        <line num="376" type="method" name="isAjaxMode" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="378" type="stmt" count="1"/>
+        <line num="381" type="method" name="isInConsoleMode" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="383" type="stmt" count="0"/>
+        <line num="386" type="method" name="shouldBeAjax" visibility="public" complexity="2" crap="6" count="0"/>
+        <line num="388" type="stmt" count="0"/>
+        <line num="389" type="stmt" count="0"/>
+        <line num="392" type="stmt" count="0"/>
+        <metrics loc="396" ncloc="386" classes="1" methods="46" coveredmethods="20" conditionals="0" coveredconditionals="0" statements="121" coveredstatements="72" elements="167" coveredelements="92"/>
+      </file>
+    </package>
+    <package name="MetaFramework\Support\View\Components">
+      <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\View\Components\Alert.php">
+        <class name="MetaFramework\Support\View\Components\Alert" namespace="MetaFramework\Support\View\Components">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+        </class>
+        <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="15" type="stmt" count="2"/>
+        <line num="17" type="method" name="render" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="19" type="stmt" count="2"/>
+        <metrics loc="23" ncloc="23" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+      </file>
+      <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\View\Components\ResponseMessages.php">
+        <class name="MetaFramework\Support\View\Components\ResponseMessages" namespace="MetaFramework\Support\View\Components">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+        </class>
+        <line num="16" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="21" type="stmt" count="2"/>
+        <line num="28" type="method" name="render" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="30" type="stmt" count="1"/>
+        <metrics loc="33" ncloc="22" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+      </file>
+      <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\View\Components\ValidationBanner.php">
+        <class name="MetaFramework\Support\View\Components\ValidationBanner" namespace="MetaFramework\Support\View\Components">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+        </class>
+        <line num="11" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="14" type="stmt" count="1"/>
+        <line num="16" type="method" name="render" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="18" type="stmt" count="1"/>
+        <metrics loc="21" ncloc="20" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+      </file>
+      <file name="C:\laragon\www\_packages\aboleon\metaframework-support\src\View\Components\ValidationErrors.php">
+        <class name="MetaFramework\Support\View\Components\ValidationErrors" namespace="MetaFramework\Support\View\Components">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+        </class>
+        <line num="11" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="14" type="stmt" count="1"/>
+        <line num="16" type="method" name="render" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="18" type="stmt" count="1"/>
+        <metrics loc="21" ncloc="20" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+      </file>
+    </package>
+    <metrics files="16" loc="1079" ncloc="1000" classes="11" methods="77" coveredmethods="43" conditionals="0" coveredconditionals="0" statements="349" coveredstatements="246" elements="426" coveredelements="289"/>
+  </project>
+</coverage>

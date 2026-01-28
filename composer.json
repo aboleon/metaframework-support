@@ -10,6 +10,11 @@
     "illuminate/view": "^11.0|^12.0",
     "illuminate/contracts": "^11.0|^12.0"
   },
+  "require-dev": {
+    "orchestra/testbench": "^9.0",
+    "phpunit/phpunit": "^11.0",
+    "laravel/pint": "^1.14"
+  },
   "autoload": {
     "psr-4": {
       "MetaFramework\\Support\\": "src/"
@@ -17,6 +22,11 @@
     "files": [
       "src/Functions/debugger.php"
     ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MetaFramework\\Support\\Tests\\": "tests/"
+    }
   },
   "extra": {
     "laravel": {
