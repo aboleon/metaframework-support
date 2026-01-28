@@ -1,5 +1,12 @@
 # MetaFramework Support
 
+[![Tests](https://github.com/aboleon/metaframework-google-places/actions/workflows/tests.yml/badge.svg)](https://github.com/aboleon/metaframework-google-places/actions)
+[![codecov](https://codecov.io/gh/aboleon/metaframework-support/graph/badge.svg)](https://codecov.io/gh/aboleon/metaframework-support)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/aboleon/metaframework-support.svg?style=flat-square)](https://packagist.org/packages/aboleon/metaframework-support)
+[![Total Downloads](https://img.shields.io/packagist/dt/aboleon/metaframework-support.svg?style=flat-square)](https://packagist.org/packages/aboleon/metaframework-support)
+[![PHP Version](https://img.shields.io/packagist/php-v/aboleon/metaframework-support.svg?style=flat-square)](https://packagist.org/packages/aboleon/metaframework-support)
+[![License](https://img.shields.io/packagist/l/aboleon/metaframework-support.svg?style=flat-square)](https://packagist.org/packages/aboleon/metaframework-support)
+
 A Laravel package providing essential utilities for debugging, AJAX handling, and standardized response management.
 
 ## Features
