@@ -676,6 +676,27 @@ Use the Blade alert component to display messages:
 
 Available types: `success`, `danger`, `warning`, `info`
 
+### Response & Validation Components
+
+Use the Blade components to display session responses and validation feedback:
+
+```blade
+{{-- Flash/session response messages --}}
+<x-mfw-support::response-messages />
+
+{{-- Validation error list --}}
+<x-mfw-support::validation-errors />
+
+{{-- Validation banner notice --}}
+<x-mfw-support::validation-banner />
+```
+
+You can also customize the response messages container:
+
+```blade
+<x-mfw-support::response-messages id="custom-messages" ajax="{{ route('ajax.handle') }}" />
+```
+
 ### Response Message Parsing
 
 Parse and display response arrays automatically:
