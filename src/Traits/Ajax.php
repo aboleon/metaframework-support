@@ -20,7 +20,7 @@ trait Ajax
             return response()->json($this->response, 400);
         }
 
-        if (!method_exists(self::class, request('action'))) {
+        if (!method_exists(static::class, request('action'))) {
             $this->responseError(__('mfw-support::mfw-support.ajax.request_cannot_be_processed'));
             return response()->json($this->response, 405);
         }
