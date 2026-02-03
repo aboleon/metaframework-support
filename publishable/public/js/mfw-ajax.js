@@ -1,11 +1,7 @@
-/**
- * MetaFramework AJAX Module
- * Handles AJAX requests with automatic message display and callback execution
- */
-
 class MfwAjax {
     static dev = true;
     static timerDefault = 200;
+    static callbacks = {};
 
     constructor(formData, selector, options = {}) {
         this.formData = formData;
@@ -17,6 +13,9 @@ class MfwAjax {
         this.formTag = this.selector.length ? this.selector.closest('.form') : $();
         this.messages = null;
         this.spinner = null;
+        this.lockForm = this.options.lockForm ?? false;
+        this.scrollToMessages = this.options.scrollToMessages ?? false;
+        this.lockedElements = $();
 
         this.init();
     }
@@ -80,6 +79,10 @@ class MfwAjax {
             dataType: 'json',
         });
 
+        if (this.lockForm) {
+            this.lockFormElements();
+        }
+
         if (this.spinner) {
             this.spinner.show();
         }
@@ -101,6 +104,9 @@ class MfwAjax {
 
                 if (showMessages && result.hasOwnProperty('mfw_ajax_messages')) {
                     messagePrinter(200, result.mfw_ajax_messages, self.messages, keepMessages, printerOptions);
+                    if (self.scrollToMessages) {
+                        self.scrollToMessageContainer();
+                    }
                 }
 
                 ['mfw_ajax_messages_log', 'mfw_messages_log'].forEach(function (logKey) {
@@ -121,19 +127,36 @@ class MfwAjax {
                 MfwAjax.notificator(xhr.status, xhr, self.messages, keepMessages, printerOptions);
             },
         }).always(function (result) {
-            const callback = result.hasOwnProperty('callback') ? result.callback : false;
+            const callbacks = [];
+            if (result.hasOwnProperty('callback')) {
+                callbacks.push(result.callback);
+            }
+            if (Array.isArray(result.callbacks)) {
+                callbacks.push(...result.callbacks);
+            }
 
             if (MfwAjax.dev) {
                 console.log(result, 'Result');
             }
 
-            if (typeof window[callback] === 'function') {
-                window[callback](result);
-            }
-            console.log(callback, typeof window[callback] === 'function');
+            callbacks.forEach(function (callback) {
+                if (!callback) {
+                    return;
+                }
+                if (typeof window[callback] === 'function') {
+                    window[callback](result);
+                    return;
+                }
+                if (typeof MfwAjax.callbacks[callback] === 'function') {
+                    MfwAjax.callbacks[callback](result);
+                }
+            });
 
             if (self.spinner) {
                 self.spinner.hide();
+            }
+            if (self.lockForm) {
+                self.unlockFormElements();
             }
             MfwAjax.spinout();
         });
@@ -211,43 +234,48 @@ class MfwAjax {
     static removeVeil() {
         $('.veil').remove();
     }
+
+    static registerCallback(name, handler) {
+        if (typeof name !== 'string' || typeof handler !== 'function') {
+            return;
+        }
+
+        MfwAjax.callbacks[name] = handler;
+    }
+
+    lockFormElements() {
+        if (!this.formTag.length) {
+            return;
+        }
+
+        this.lockedElements = this.formTag
+            .find('input, select, textarea, button')
+            .filter(':enabled');
+
+        this.lockedElements.prop('disabled', true).addClass('mfw-ajax-locked');
+    }
+
+    unlockFormElements() {
+        if (!this.lockedElements.length) {
+            return;
+        }
+
+        this.lockedElements.prop('disabled', false).removeClass('mfw-ajax-locked');
+        this.lockedElements = $();
+    }
+
+    scrollToMessageContainer() {
+        if (!this.messages || !this.messages.length) {
+            return;
+        }
+
+        const top = this.messages.offset()?.top;
+        if (typeof top === 'number') {
+            $('html, body').animate({ scrollTop: top - 120 }, 200);
+        }
+    }
 }
 
-/**
- * Simple AJAX function wrapper
- *
- * @param {string} formData - Serialized form data (query string format: "action=method&param=value")
- * @param {jQuery} selector - jQuery element (used to find .messages container and data-ajax attribute)
- * @param {object} options - Optional configuration
- * @param {boolean} options.spinner - Show/hide loading spinner
- * @param {function} options.successHandler - Custom success callback (return false to suppress messages)
- * @param {function} options.errorHandler - Custom error callback (return false to suppress messages)
- * @param {boolean} options.keepMessages - Keep previous messages (default: false)
- * @param {object} options.printerOptions - Message printer options
- * @param {boolean} options.printerOptions.isDismissable - Make alerts dismissable (default: true)
- * @param {function} options.messagePrinter - Custom message printer function
- *
- * @example
- * // Basic usage
- * mfwAjax('action=deleteItem&id=123', $('#my-container'));
- *
- * @example
- * // With callback
- * mfwAjax('action=updateProfile&name=John&callback=refreshProfile', $('#profile-section'));
- *
- * @example
- * // With custom handlers
- * mfwAjax('action=saveData', $('#form'), {
- *     successHandler: function(result) {
- *         console.log('Success!', result);
- *         return true; // Show messages
- *     },
- *     errorHandler: function(result) {
- *         console.error('Error!', result);
- *         return false; // Suppress messages
- *     }
- * });
- */
 function mfwAjax(formData, selector, options = {}) {
     return new MfwAjax(formData, selector, options);
 }

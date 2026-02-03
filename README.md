@@ -324,6 +324,7 @@ fetch('/ajax', {
 ### Frontend JavaScript Integration
 
 The package provides a powerful `MfwAjax` JavaScript class and `mfwAjax()` helper function for seamless frontend-backend communication.
+This MetaFramework AJAX module handles requests with automatic message display and callback execution.
 
 #### Setup
 
@@ -382,7 +383,33 @@ mfwAjax(formData, selector, options)
   - `isDismissable` (boolean): Make alerts dismissable (default: `true`)
 - `messagePrinter` (function): Custom message printer function
 
-#### Basic Usage
+#### Primary Examples
+
+```javascript
+// Basic usage
+mfwAjax('action=deleteItem&id=123', $('#my-container'));
+```
+
+```javascript
+// With callback
+mfwAjax('action=updateProfile&name=John&callback=refreshProfile', $('#profile-section'));
+```
+
+```javascript
+// With custom handlers
+mfwAjax('action=saveData', $('#form'), {
+    successHandler: function(result) {
+        console.log('Success!', result);
+        return true; // Show messages
+    },
+    errorHandler: function(result) {
+        console.error('Error!', result);
+        return false; // Suppress messages
+    }
+});
+```
+
+#### Secondary Example (Quick Usage)
 
 ```javascript
 // Simple AJAX call
