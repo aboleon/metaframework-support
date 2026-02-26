@@ -271,7 +271,7 @@ trait Responses
             if ($type && method_exists($this, 'response'.ucfirst($type))) {
                 $this->{'response'.ucfirst($type)}($message);
             } else {
-                $this->responseWarning($message);
+                $this->responseNotice($message);
             }
         }
 
