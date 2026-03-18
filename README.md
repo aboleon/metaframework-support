@@ -448,7 +448,7 @@ mfwAjax('action=deleteNote&id=456', $('#notes'));
 
 @section('content')
     {{-- Flash messages from session --}}
-    <x-mfw::response-messages/>
+    <x-mfw-support::response-messages/>
 
     <div id="notes-section" data-ajax="{{ route('ajax.handle') }}">
         <div id="note-messages"></div>
