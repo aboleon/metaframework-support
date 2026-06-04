@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MetaFramework\Support;
 
 use Illuminate\Support\Facades\Blade;
@@ -24,6 +26,7 @@ class SupportServiceProvider extends ServiceProvider
             // Publish AJAX JavaScript file
             $this->publishes([
                 __DIR__ . '/../publishable/public/js/mfw-ajax.js' => public_path('vendor/mfw-support/js/mfw-ajax.js'),
+                __DIR__ . '/../publishable/public/js/mfw-action-client.js' => public_path('vendor/mfw-support/js/mfw-action-client.js'),
             ], 'mfw-support-assets');
 
             // Publish translations
@@ -34,15 +37,15 @@ class SupportServiceProvider extends ServiceProvider
             // Publish everything
             $this->publishes([
                 __DIR__ . '/../publishable/public/js/mfw-ajax.js' => public_path('vendor/mfw-support/js/mfw-ajax.js'),
+                __DIR__ . '/../publishable/public/js/mfw-action-client.js' => public_path('vendor/mfw-support/js/mfw-action-client.js'),
                 __DIR__ . '/../publishable/lang' => $this->app->langPath('vendor/mfw-support'),
             ], 'mfw-support');
 
             // Register commands
             $this->commands([
-                \MetaFramework\Support\Console\PublishAssetsCommand::class,
-                \MetaFramework\Support\Console\PublishTranslationsCommand::class,
+                Console\PublishAssetsCommand::class,
+                Console\PublishTranslationsCommand::class,
             ]);
         }
     }
 }
-

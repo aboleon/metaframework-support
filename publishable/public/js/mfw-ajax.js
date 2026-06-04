@@ -279,3 +279,6 @@ class MfwAjax {
 function mfwAjax(formData, selector, options = {}) {
     return new MfwAjax(formData, selector, options);
 }
+
+window.MfwAjax = MfwAjax;
+window.mfwAjax = mfwAjax;

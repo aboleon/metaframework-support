@@ -47,13 +47,14 @@ Or use Laravel's vendor:publish command:
 php artisan vendor:publish --tag=mfw-support-assets
 ```
 
-This will copy the `mfw-ajax.js` file to `public/vendor/mfw-support/js/`.
+This will copy the `mfw-ajax.js` and `mfw-action-client.js` files to `public/vendor/mfw-support/js/`.
 
 **Include in your layout:**
 
 ```blade
 {{-- In your layout file (e.g., resources/views/layouts/app.blade.php) --}}
 <script src="{{ asset('vendor/mfw-support/js/mfw-ajax.js') }}"></script>
+<script src="{{ asset('vendor/mfw-support/js/mfw-action-client.js') }}"></script>
 ```
 
 **Publish assets with translations:**
@@ -101,6 +102,18 @@ php artisan mfw-support:publish-translations --force
 ```
 
 Translations will be published to `lang/vendor/mfw-support/{locale}/mfw-support.php`.
+
+### Svelte / Reactive Islands
+
+Use `mfwAction()` for JavaScript islands that need a Promise-based client instead of the DOM-mutating `mfwAjax()` flow. It posts to the same MetaFramework AJAX relay and injects the `action` parameter automatically:
+
+```js
+const result = await mfwAction('saveSomething', new FormData(form), {
+    url: 'panel/Publisher/ajax',
+});
+```
+
+`mfwAction()` sends the CSRF token, requests JSON, throws `MfwActionError` for non-2xx responses, and dispatches response callbacks registered on `MfwActionClient`, `MfwAjax.callbacks`, or `window`.
 
 ## Usage
 
