@@ -115,6 +115,22 @@ const result = await mfwAction('saveSomething', new FormData(form), {
 
 `mfwAction()` sends the CSRF token, requests JSON, throws `MfwActionError` for non-2xx responses, and dispatches response callbacks registered on `MfwActionClient`, `MfwAjax.callbacks`, or `window`.
 
+For reactive UI feedback, use the package normalizers instead of duplicating message parsing in each island:
+
+```js
+try {
+    const result = await mfwAction('saveSomething', formData, {
+        url: 'panel/Publisher/ajax',
+    });
+
+    alerts = MfwActionClient.alertsFromMfwMessages(result.mfw_ajax_messages ?? []);
+} catch (error) {
+    alerts = MfwActionClient.alertsFromError(error);
+}
+```
+
+The same mapping is also available through `MfwActionFeedback` and `MfwAjax` for classic AJAX integrations.
+
 ## Usage
 
 ### Debugging Helpers

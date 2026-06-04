@@ -8,6 +8,51 @@ class MfwActionError extends Error {
     }
 }
 
+class MfwActionFeedback {
+    static alertType(type) {
+        return {
+            danger: 'danger',
+            error: 'danger',
+            warning: 'warning',
+            success: 'success',
+            info: 'info',
+            status: 'info',
+        }[type] ?? 'info';
+    }
+
+    static alertsFromMfwMessages(messages) {
+        if (!Array.isArray(messages)) {
+            return [];
+        }
+
+        return messages.flatMap((messageGroup) => Object.entries(messageGroup ?? {}).map(([type, message]) => ({
+            type: MfwActionFeedback.alertType(type),
+            message,
+        })));
+    }
+
+    static alertsFromError(error, fallbackMessage = 'La requête n’a pas pu être traitée.') {
+        const payload = error?.payload ?? error?.responseJSON ?? {};
+
+        if (payload.errors) {
+            return Object.values(payload.errors)
+                .flat()
+                .map((message) => ({ type: 'danger', message }));
+        }
+
+        if (payload.mfw_ajax_messages) {
+            return MfwActionFeedback.alertsFromMfwMessages(payload.mfw_ajax_messages);
+        }
+
+        return [
+            {
+                type: 'danger',
+                message: payload.message ?? error?.message ?? fallbackMessage,
+            },
+        ];
+    }
+}
+
 class MfwActionClient {
     static callbacks = {};
 
@@ -160,6 +205,18 @@ class MfwActionClient {
     static request(action, data = {}, options = {}) {
         return new MfwActionClient(action, data, options).execute();
     }
+
+    static alertType(type) {
+        return MfwActionFeedback.alertType(type);
+    }
+
+    static alertsFromMfwMessages(messages) {
+        return MfwActionFeedback.alertsFromMfwMessages(messages);
+    }
+
+    static alertsFromError(error, fallbackMessage = 'La requête n’a pas pu être traitée.') {
+        return MfwActionFeedback.alertsFromError(error, fallbackMessage);
+    }
 }
 
 function mfwAction(action, data = {}, options = {}) {
@@ -167,5 +224,11 @@ function mfwAction(action, data = {}, options = {}) {
 }
 
 window.MfwActionError = MfwActionError;
+window.MfwActionFeedback = MfwActionFeedback;
 window.MfwActionClient = MfwActionClient;
+window.mfwActionFeedback = {
+    alertType: MfwActionFeedback.alertType,
+    alertsFromMfwMessages: MfwActionFeedback.alertsFromMfwMessages,
+    alertsFromError: MfwActionFeedback.alertsFromError,
+};
 window.mfwAction = mfwAction;

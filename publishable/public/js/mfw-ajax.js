@@ -182,6 +182,49 @@ class MfwAjax {
         });
     }
 
+    static alertType(type) {
+        return {
+            danger: 'danger',
+            error: 'danger',
+            warning: 'warning',
+            success: 'success',
+            info: 'info',
+            status: 'info',
+        }[type] ?? 'info';
+    }
+
+    static alertsFromMfwMessages(messages) {
+        if (!Array.isArray(messages)) {
+            return [];
+        }
+
+        return messages.flatMap((messageGroup) => Object.entries(messageGroup ?? {}).map(([type, message]) => ({
+            type: MfwAjax.alertType(type),
+            message,
+        })));
+    }
+
+    static alertsFromError(error, fallbackMessage = 'La requête n’a pas pu être traitée.') {
+        const payload = error?.payload ?? error?.responseJSON ?? {};
+
+        if (payload.errors) {
+            return Object.values(payload.errors)
+                .flat()
+                .map((message) => ({ type: 'danger', message }));
+        }
+
+        if (payload.mfw_ajax_messages) {
+            return MfwAjax.alertsFromMfwMessages(payload.mfw_ajax_messages);
+        }
+
+        return [
+            {
+                type: 'danger',
+                message: payload.message ?? error?.message ?? fallbackMessage,
+            },
+        ];
+    }
+
     static alertDispatcher(message, messages, messageType, isDismissable) {
         const alertHtml = isDismissable
             ? '<div style="opacity: 0; transition: opacity 0.5s;" class="alert alert-dismissible alert-' + messageType + '">' +
@@ -219,7 +262,7 @@ class MfwAjax {
 
                 $data.each(function (index, message) {
                     $.each(message, function (key, value) {
-                        MfwAjax.alertDispatcher(value, messages, key, isDismissable);
+                        MfwAjax.alertDispatcher(value, messages, MfwAjax.alertType(key), isDismissable);
                     });
                 });
         }
