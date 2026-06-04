@@ -206,6 +206,64 @@ class MfwActionClient {
         return new MfwActionClient(action, data, options).execute();
     }
 
+    static createSubmitter(defaultOptions = {}) {
+        return (action, data = {}, options = {}) => MfwActionClient.submit(action, data, {
+            ...defaultOptions,
+            ...options,
+            requestOptions: {
+                ...(defaultOptions.requestOptions ?? {}),
+                ...(options.requestOptions ?? {}),
+            },
+        });
+    }
+
+    static async submit(action, data = {}, options = {}) {
+        const setPending = typeof options.onPending === 'function' ? options.onPending : () => {};
+        const setAlerts = typeof options.onAlerts === 'function' ? options.onAlerts : () => {};
+        const onResult = typeof options.onResult === 'function' ? options.onResult : () => {};
+        const resolvedUrl = typeof options.url === 'function' ? options.url() : options.url;
+        const requestOptions = { ...(options.requestOptions ?? {}) };
+
+        if (resolvedUrl !== undefined) {
+            requestOptions.url = resolvedUrl;
+        }
+
+        setAlerts([]);
+        setPending(options.pending ?? action);
+
+        try {
+            const result = await MfwActionClient.request(action, data, requestOptions);
+            const alerts = MfwActionClient.alertsFromMfwMessages(result.mfw_ajax_messages ?? []);
+            const resultValue = options.resultKey === undefined ? result : result?.[options.resultKey];
+
+            setAlerts(alerts);
+
+            if (!result.error && resultValue !== undefined) {
+                onResult(resultValue, result, alerts);
+            }
+
+            return {
+                result,
+                alerts,
+                error: null,
+                hasError: Boolean(result.error),
+            };
+        } catch (error) {
+            const alerts = MfwActionClient.alertsFromError(error);
+
+            setAlerts(alerts);
+
+            return {
+                result: null,
+                alerts,
+                error,
+                hasError: true,
+            };
+        } finally {
+            setPending('');
+        }
+    }
+
     static alertType(type) {
         return MfwActionFeedback.alertType(type);
     }
@@ -223,6 +281,10 @@ function mfwAction(action, data = {}, options = {}) {
     return MfwActionClient.request(action, data, options);
 }
 
+function mfwSubmitAction(action, data = {}, options = {}) {
+    return MfwActionClient.submit(action, data, options);
+}
+
 window.MfwActionError = MfwActionError;
 window.MfwActionFeedback = MfwActionFeedback;
 window.MfwActionClient = MfwActionClient;
@@ -232,3 +294,4 @@ window.mfwActionFeedback = {
     alertsFromError: MfwActionFeedback.alertsFromError,
 };
 window.mfwAction = mfwAction;
+window.mfwSubmitAction = mfwSubmitAction;

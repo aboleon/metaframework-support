@@ -115,21 +115,23 @@ const result = await mfwAction('saveSomething', new FormData(form), {
 
 `mfwAction()` sends the CSRF token, requests JSON, throws `MfwActionError` for non-2xx responses, and dispatches response callbacks registered on `MfwActionClient`, `MfwAjax.callbacks`, or `window`.
 
-For reactive UI feedback, use the package normalizers instead of duplicating message parsing in each island:
+For reactive UI feedback, use `MfwActionClient.submit()` instead of duplicating pending/error/message handling in each island:
 
 ```js
-try {
-    const result = await mfwAction('saveSomething', formData, {
-        url: 'panel/Publisher/ajax',
-    });
+const submitAction = MfwActionClient.createSubmitter({
+    url: 'panel/Publisher/ajax',
+    resultKey: 'thing',
+    onResult: (thing) => applyResult(thing),
+    onPending: (value) => pending = value,
+    onAlerts: (value) => alerts = value,
+});
 
-    alerts = MfwActionClient.alertsFromMfwMessages(result.mfw_ajax_messages ?? []);
-} catch (error) {
-    alerts = MfwActionClient.alertsFromError(error);
-}
+await submitAction('saveSomething', formData, {
+    pending: 'save',
+});
 ```
 
-The same mapping is also available through `MfwActionFeedback` and `MfwAjax` for classic AJAX integrations.
+The lower-level message normalizers are also available through `MfwActionFeedback`, `MfwActionClient`, and `MfwAjax` for custom or classic AJAX integrations.
 
 ## Usage
 
