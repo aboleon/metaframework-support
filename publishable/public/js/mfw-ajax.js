@@ -61,6 +61,7 @@ class MfwAjax {
         const printerOptions = this.options.printerOptions ?? {};
         const successHandler = this.options.successHandler ?? null;
         const errorHandler = this.options.errorHandler ?? null;
+        const httpErrorHandler = this.options.httpErrorHandler ?? null;
 
         const messagePrinter = this.options.messagePrinter ?? function (status, ajaxMessages, messages, keepMessages, printerOptions) {
             return ajaxMessages.length > 0 ? MfwAjax.notificator(status, ajaxMessages, messages, keepMessages, printerOptions) : null;
@@ -121,10 +122,13 @@ class MfwAjax {
                 });
             },
             error: function (xhr) {
+                if (httpErrorHandler) {
+                    httpErrorHandler(xhr);
+                }
                 if (MfwAjax.dev) {
                     console.log(xhr);
                 }
-                MfwAjax.notificator(xhr.status, xhr, self.messages, keepMessages, printerOptions);
+                MfwAjax.notificator(xhr.status, xhr.responseJSON?.mfw_ajax_messages ?? xhr, self.messages, keepMessages, printerOptions);
             },
         }).always(function (result) {
             const callbacks = [];
@@ -225,6 +229,18 @@ class MfwAjax {
         ];
     }
 
+    static alertsFromPayload(status, data) {
+        const ajaxMessages = Array.isArray(data)
+            ? data
+            : data?.mfw_ajax_messages ?? data?.responseJSON?.mfw_ajax_messages ?? null;
+
+        if (ajaxMessages) {
+            return MfwAjax.alertsFromMfwMessages(ajaxMessages);
+        }
+
+        return status >= 400 ? MfwAjax.alertsFromError(data) : [];
+    }
+
     static alertDispatcher(message, messages, messageType, isDismissable) {
         const alertHtml = isDismissable
             ? '<div style="opacity: 0; transition: opacity 0.5s;" class="alert alert-dismissible alert-' + messageType + '">' +
@@ -242,30 +258,19 @@ class MfwAjax {
 
     static notificator(status, data, messages, keepMessages, printerOptions) {
         const isDismissable = printerOptions.isDismissable ?? true;
-        const $data = $(data);
+        const alerts = MfwAjax.alertsFromPayload(status, data);
 
         if (!keepMessages) {
             messages.empty();
         }
 
-        switch (status) {
-            case 422:
-                if (data.responseJSON?.errors) {
-                    $.each(data.responseJSON.errors, function (key, errorMessages) {
-                        MfwAjax.alertDispatcher(errorMessages[0], messages, 'danger', isDismissable);
-                    });
-                }
-                break;
-
-            default:
-                if (!$data.length) return false;
-
-                $data.each(function (index, message) {
-                    $.each(message, function (key, value) {
-                        MfwAjax.alertDispatcher(value, messages, MfwAjax.alertType(key), isDismissable);
-                    });
-                });
+        if (alerts.length < 1) {
+            return false;
         }
+
+        alerts.forEach(function (alert) {
+            MfwAjax.alertDispatcher(alert.message, messages, alert.type, isDismissable);
+        });
 
         MfwAjax.dismissable();
     }

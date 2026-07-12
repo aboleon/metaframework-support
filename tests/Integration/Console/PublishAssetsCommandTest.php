@@ -19,6 +19,10 @@ class PublishAssetsCommandTest extends TestCase
             ->assertExitCode(0);
 
         $this->assertTrue(File::exists($destination));
+        $this->assertSame(
+            File::get(__DIR__ . '/../../../publishable/public/js/mfw-ajax.js'),
+            File::get($destination),
+        );
     }
 
     public function test_publish_assets_command_respects_existing_file_without_force(): void

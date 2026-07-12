@@ -409,6 +409,7 @@ mfwAjax(formData, selector, options)
 - `spinner` (boolean): Show/hide loading spinner
 - `successHandler` (function): Custom success callback (return `false` to suppress messages)
 - `errorHandler` (function): Custom error callback (return `false` to suppress messages)
+- `httpErrorHandler` (function): Callback receiving the jQuery XHR object when the request returns an HTTP error
 - `keepMessages` (boolean): Keep previous messages instead of clearing them
 - `printerOptions` (object):
   - `isDismissable` (boolean): Make alerts dismissable (default: `true`)
@@ -436,6 +437,16 @@ mfwAjax('action=saveData', $('#form'), {
     errorHandler: function(result) {
         console.error('Error!', result);
         return false; // Suppress messages
+    }
+});
+```
+
+HTTP error responses automatically render `mfw_ajax_messages`, including rate-limit and authorization responses. Use `httpErrorHandler` for additional reporting without replacing the standard message display:
+
+```javascript
+mfwAjax('action=saveData', $('#form'), {
+    httpErrorHandler: function(xhr) {
+        reportClientFailure(xhr.status);
     }
 });
 ```
