@@ -17,11 +17,12 @@ A Laravel package providing essential utilities for debugging, AJAX handling, an
 - Flash message support
 - Blade alert components
 - SQL query debugging tools
+- Opt-in Laravel log error email monitoring
 
 ## Requirements
 
 - PHP ^8.3
-- Laravel ^11.0 or ^12.0
+- Laravel ^11.0, ^12.0, or ^13.0
 
 ## Installation
 
@@ -32,6 +33,41 @@ composer require aboleon/metaframework-support
 ```
 
 The package will automatically register its service provider through Laravel's package discovery.
+
+### Laravel Log Error Alerts
+
+Enable the opt-in monitor to email newly appended `ERROR`, `CRITICAL`, `ALERT`, and
+`EMERGENCY` records from Laravel's standard text logs:
+
+```dotenv
+MFW_ERROR_ALERTS_ENABLED=true
+MFW_ERROR_ALERTS_MAILER=smtp
+```
+
+When `MFW_ERROR_ALERTS_EMAIL` is omitted, the recipient defaults to Laravel's configured
+`mail.from.address` (`MAIL_FROM_ADDRESS`). Set `MFW_ERROR_ALERTS_EMAIL=alerts@example.com`
+only when alerts should go to a different address.
+
+The package registers `mfw-support:send-error-alerts` with Laravel's scheduler every
+minute. The host must run `php artisan schedule:run` every minute.
+
+The first execution initializes a file-and-byte cursor at the current end of the newest
+matching log, avoiding historical alerts. Later executions preserve multiline entries,
+finish a rotated log before reading its replacement, batch at most 20 errors per email,
+and commit the cursor only after successful synchronous delivery. Failed deliveries are
+retried on the next run. This provides at-least-once delivery for records successfully
+written to the configured Laravel log.
+
+The Laravel `log` mail transport is rejected to prevent recursive alerts. Publish the
+configuration to customize paths, levels, batch size, schedule, or locking:
+
+```bash
+php artisan vendor:publish --tag=mfw-support-config
+```
+
+The monitor does not cover failures that prevent Laravel from writing a log or running
+its scheduler. Use an independent uptime/infrastructure monitor for PHP-FPM, Nginx, and
+host failures.
 
 ### Publishing Assets
 
