@@ -1,3 +1,3 @@
 @if ($errors->any())
-    {!! \MetaFramework\Support\Responses\ResponseMessages::criticalNotice(__('mfw.validation-banner')) !!}
+    {!! \MetaFramework\Support\Responses\ResponseMessages::criticalNotice(__('mfw-support::mfw-support.validation-banner')) !!}
 @endif

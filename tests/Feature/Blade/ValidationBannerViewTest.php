@@ -21,7 +21,7 @@ class ValidationBannerViewTest extends TestCase
         ])->render();
 
         $this->assertStringContainsString('alert-danger', $html);
-        $this->assertStringContainsString('mfw.validation-banner', $html);
+        $this->assertStringContainsString('Not all fields are filled in correctly. Please correct them.', $html);
     }
 
     public function test_validation_banner_view_is_empty_when_no_errors(): void
